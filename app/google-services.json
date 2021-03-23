@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "974094910701",
+    "project_id": "punjabi-bani",
+    "storage_bucket": "punjabi-bani.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974094910701:android:3a33bbc77c6145a576b8e4",
+        "android_client_info": {
+          "package_name": "com.digihelper.punjabibani"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974094910701-5s2v6a4nh6ikvsp7f5mile5mkldiih2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNuN1pMlCZtNToCi6YVaKnTinmoGVSTwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974094910701-5s2v6a4nh6ikvsp7f5mile5mkldiih2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
