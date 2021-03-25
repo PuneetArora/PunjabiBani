@@ -1,23 +1,22 @@
 package com.digihelper.punjabibani.Fragments;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.res.Configuration;
-import android.media.AudioManager;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.digihelper.punjabibani.Utils.FullScreenHelper;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.digihelper.punjabibani.R;
+import com.digihelper.punjabibani.Utils.FullScreenHelper;
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.audio.AudioAttributes;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.util.Util;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants;
@@ -45,6 +44,8 @@ public class LiveFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        setRetainInstance(true);
         super.onCreate(savedInstanceState);
     }
 
@@ -152,7 +153,12 @@ public class LiveFragment extends Fragment {
     }
 
     private void initializePlayer() {
-        radioPlayer  = new SimpleExoPlayer.Builder(getActivity()).build();
+        radioPlayer = new SimpleExoPlayer.Builder(getActivity()).build();
+        AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                .setUsage(C.USAGE_MEDIA)
+                .setContentType(C.CONTENT_TYPE_MUSIC)
+                .build();
+        radioPlayer.setAudioAttributes(audioAttributes, true);
         playerView.setPlayer(radioPlayer);
         MediaItem mediaItem = MediaItem.fromUri("https://gurbanikirtan.radioca.st/start.mp3");
         radioPlayer.setMediaItem(mediaItem);
@@ -163,13 +169,12 @@ public class LiveFragment extends Fragment {
         radioPlayer.prepare();
     }
 
-    private class PlaybackStateListener implements Player.EventListener {
+    public class PlaybackStateListener implements Player.EventListener {
         @Override
-        public void onIsPlayingChanged(boolean isPlaying)
-        {
-            if(isPlaying) {
-               if(yTPlayer!=null )
-                yTPlayer.pause();
+        public void onIsPlayingChanged(boolean isPlaying) {
+            if (isPlaying) {
+                if (yTPlayer != null)
+                    yTPlayer.pause();
             }
         }
 

@@ -19,10 +19,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             @NonNull FragmentManager fm)
     {
         super(fm);
-        liveFragment = new LiveFragment();
-        audioFragment = new AudioFragment();
-        videoFragment = new VideoFragment();
-    }
+        }
 
     @NonNull
     @Override
@@ -50,6 +47,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position)
     {
+
         String title = null;
         if (position == 0)
             title = "Live";

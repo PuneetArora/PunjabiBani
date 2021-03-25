@@ -1,12 +1,13 @@
 package com.digihelper.punjabibani.Activities;
 
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Bundle;
-import android.widget.Toast;
-import com.digihelper.punjabibani.R;
 import com.digihelper.punjabibani.Adapters.ViewPagerAdapter;
+import com.digihelper.punjabibani.R;
 import com.digihelper.punjabibani.Utils.ZoomOutPageTransformer;
 import com.google.android.material.tabs.TabLayout;
 
@@ -35,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
 
     @Override
     public void onBackPressed() {
@@ -46,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         }
         mBackPressed = System.currentTimeMillis();
     }
-
 
 
 }
